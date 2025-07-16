@@ -2,20 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --gradient-purple-blue: linear-gradient(135deg, #7928ca 0%, #0070f3 100%);
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
   @apply font-sans;
-  position: relative; /* For scroll progress bar */
 }
 
-/* ===== Basic Animations ===== */
+.container-custom {
+  @apply container mx-auto px-4 md:px-6 lg:px-8 max-w-[85%];
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -48,7 +46,7 @@ body {
 @keyframes slideInRight {
   from {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(-100px);
   }
   to {
     opacity: 1;
@@ -74,11 +72,15 @@ body {
   animation-play-state: paused;
 }
 
+.animate-on-scroll.left-to-right {
+  animation: slideInRight 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-play-state: paused;
+}
+
 .animate-on-scroll.animated {
   animation-play-state: running;
 }
 
-/* Animation delays for staggered entrance */
 .delay-0 {
   animation-delay: 0s;
 }
@@ -98,14 +100,8 @@ body {
   animation-delay: 0.5s;
 }
 
-.gradient-text {
-  @apply bg-clip-text text-transparent;
-  background-image: var(--gradient-purple-blue);
-}
-
-/* ===== Button Styles & Effects ===== */
 .btn {
-  @apply inline-block px-6 py-3 rounded-lg font-medium transition-all duration-200;
+  @apply px-6 py-3 rounded-lg font-medium transition-all duration-200;
   position: relative;
   overflow: hidden;
   transform: translate3d(0, 0, 0); /* For better performance */
@@ -146,10 +142,6 @@ body {
   @apply bg-white text-rentbq-dark-blue border border-gray-200 hover:bg-gray-50;
 }
 
-.container-custom {
-  @apply container mx-auto px-4 md:px-6 lg:px-8 max-w-7xl;
-}
-
 .section {
   @apply py-16 md:py-24;
 }
@@ -172,8 +164,7 @@ header {
 }
 
 header.scrolled {
-  @apply shadow-md bg-white/95;
-  backdrop-filter: blur(8px);
+  @apply shadow-md bg-white/80 backdrop-blur-md;
 }
 
 /* ===== Navigation Link Effects ===== */
@@ -222,32 +213,8 @@ nav a:focus::after {
 }
 
 /* ===== FAQ Accordion Animations ===== */
-.faq-item {
-  overflow: hidden;
-}
-
-.faq-item summary {
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
 .faq-item summary::-webkit-details-marker {
   display: none;
-}
-
-.faq-content {
-  max-height: 0;
-  opacity: 0;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.faq-content.faq-open {
-  max-height: 500px;
-  opacity: 1;
-}
-
-.faq-summary-open {
-  @apply text-rentbq-light-blue;
 }
 
 /* ===== Mobile Menu Animations ===== */
@@ -280,7 +247,7 @@ nav a:focus::after {
 /* ===== Parallax Effect ===== */
 .parallax {
   will-change: transform;
-  transform: translateZ(0);
+  transform: translateZ(10);
 }
 
 /* ===== Image Hover Effects ===== */
@@ -309,8 +276,7 @@ nav a:focus::after {
 
 /* ===== Focus Indicators ===== */
 *:focus {
-  outline: 2px solid theme("colors.rentbq-light-blue");
-  outline-offset: 2px;
+  outline: none;
 }
 
 /* Remove focus outline for mouse users but keep for keyboard users */

@@ -1,12 +1,12 @@
-import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
+import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
+import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://payflo.dev',
-  output: 'static',
+  site: "https://rent-bq.vercel.app",
+  output: "static",
   prefetch: true,
   integrations: [
     tailwind(),
@@ -45,14 +45,14 @@ export default defineConfig({
           "lock-key-duotone",
           "certificate-duotone",
           "lifebuoy-duotone",
-          "handshake-duotone"
-        ]
-      }
+          "handshake-duotone",
+        ],
+      },
     }),
   ],
   image: {
     service: {
-      entrypoint: 'astro/assets/services/sharp'
-    }
-  }
+      entrypoint: "astro/assets/services/sharp",
+    },
+  },
 });

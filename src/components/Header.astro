@@ -1,20 +1,25 @@
 ---
 import { Image } from 'astro:assets';
 import logoSrc from '../assets/logo.svg';
+import { Icon } from 'astro-icon/components';
 
 const navItems = [
-  { name: 'Product', href: '/product' },
-  { name: 'Solutions', href: '/solutions' },
+  { name: 'Features', href: '/#features' },
   { name: 'Pricing', href: '/pricing' },
-  { name: 'About Us', href: '/about-us' },
-  { name: 'Blog', href: '/blog' },
+  { name: 'FAQ', href: '/#faq' },
 ];
+interface Props{
+  className?: string
+}
+
+const {className = 'bg-rentbq-gray'} = Astro.props
 ---
 
-<header class="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-gray-100" role="banner">
+<header class=`sticky top-0 z-50 w-full border-b border-gray-100 ${className}` role="banner">
   <div class="container-custom flex items-center justify-between h-20">
-    <a href="/" class="flex items-center transition-transform duration-300 hover:scale-105 focus:scale-105 focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2 rounded" aria-label="Payflo home">
-      <Image src={logoSrc} alt="Payflo Logo" width={120} height={40} class="transition-all duration-300 hover:brightness-110 focus:brightness-110" />
+    <a href="/" class="flex items-center transition-transform duration-300 hover:scale-105 focus:outline-none" aria-label="RentBQ home">
+      <!-- <Image src={logoSrc} alt="Payflo Logo" width={120} height={40} class="transition-all duration-300 hover:brightness-110 focus:brightness-110" /> -->
+      <p class="text-2xl">Rent<span class="font-bold bg-clip-text text-transparent bg-gradient-to-r from-rentbq-light-blue to-rentbq-dark-blue">BQ</span></p>
     </a>
     
     <!-- Desktop Nav -->
@@ -22,7 +27,7 @@ const navItems = [
       {navItems.map(item => (
         <a 
           href={item.href} 
-          class="text-gray-700 hover:text-payflo-purple focus:text-payflo-purple transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2 rounded px-2 py-1"
+          class="text-gray-700 hover:text-rentbq-light-blue focus:text-rentbq-light-blue transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-rentbq-light-blue focus:ring-offset-2 rounded px-2 py-1"
         >
           {item.name}
         </a>
@@ -30,16 +35,20 @@ const navItems = [
     </nav>
     
     <div class="flex items-center space-x-4">
-      <a href="/login" class="hidden md:inline-block text-payflo-dark hover:text-payflo-purple focus:text-payflo-purple transition-all duration-300 relative focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2 rounded px-2 py-1">
+      <a href="#" class="hidden md:inline-block text-gray-700 hover:text-rentbq-light-blue focus:text-rentbq-light-blue transition-all duration-300 relative focus:outline-none focus:ring-2 focus:ring-rentbq-gray focus:ring-offset-2 rounded px-2 py-1">
         Log In
-        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-payflo-purple transition-all duration-300 group-hover:w-full"></span>
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-rentbq-light-blue transition-all duration-300 group-hover:w-full"></span>
       </a>
-      <a href="/book-demo" class="btn btn-primary focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2">Book a Demo</a>
-      
+      <a href="https://rent-camera-admin.vercel.app" target="_blank" class="group flex items-center justify-center space-x-3 btn btn-primary focus:outline-none focus:ring-2 focus:ring-rentbq-light-blue focus:ring-offset-2">
+        <p>Start Now</p>
+        <Icon name="ph:arrow-right" class="h-5 w-5 text-white group-hover:translate-x-1 transition-transform ease-in-out duration-300"/>
+      </a>
+      </div>
+        
       <!-- Mobile Menu Button -->
       <button 
         id="menu-toggle" 
-        class="md:hidden flex items-center transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2 rounded p-1" 
+        class="md:hidden flex items-center transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-rentbq-light-blue focus:ring-offset-2 rounded p-1" 
         aria-label="Toggle navigation menu"
         aria-expanded="false"
         aria-controls="mobile-menu"
@@ -57,13 +66,13 @@ const navItems = [
       {navItems.map((item, index) => (
         <a 
           href={item.href} 
-          class="block py-2 px-2 text-gray-700 hover:text-payflo-purple focus:text-payflo-purple transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2 rounded"
+          class="block py-2 px-2 text-gray-700 hover:text-rentbq-light-blue focus:text-rentbq-light-blue transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-rentbq-light-blue focus:ring-offset-2 rounded"
           style={`transition-delay: ${index * 50}ms;`}
         >
           {item.name}
         </a>
       ))}
-      <a href="/login" class="block py-2 px-2 text-gray-700 hover:text-payflo-purple focus:text-payflo-purple transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-payflo-purple focus:ring-offset-2 rounded">Log In</a>
+      <a href="/login" class="block py-2 px-2 border border-rentbq-gray text-gray-700 hover:text-rentbq-light-blue focus:text-rentbq-light-blue transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-rentbq-gray focus:ring-offset-2 rounded">Log In</a>
     </div>
   </nav>
 </header>

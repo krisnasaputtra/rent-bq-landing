@@ -6,61 +6,59 @@ import CTASection from '../components/CTASection.astro';
 const tiers = [
   {
     name: "Growth",
-    price: "$499",
+    price: "Rp. 30000",
     period: "/month",
-    description: "Perfect for growing platforms ready to add payroll capabilities.",
-    features: [
-      "Up to 500 employees",
-      "Direct deposit & checks",
-      "Tax calculations & filings",
+    description: "Perfect for growing your rental business",
+    features: [  
+      "Reach Customer Effortlessly",
       "Standard support",
-      "Basic API access",
       "Standard reporting",
       "Basic integrations",
-      "99.9% uptime SLA"
     ],
     cta: {
-      text: "Start Free Trial",
-      href: "/book-demo"
+      text: "Start Now",
+      href: "https://rent-camera-admin.vercel.app"
     }
   },
   {
     name: "Scale",
-    price: "$999",
-    period: "/month",
-    description: "For established platforms with advanced payroll needs.",
-    features: [
-      "Up to 2,000 employees",
-      "All Growth features",
-      "Priority support",
-      "Advanced API access",
-      "Custom reports",
-      "Advanced integrations",
-      "White-labeling",
-      "99.99% uptime SLA"
+    price: "Rp. 80000",
+    period: "/6 month",
+    description: "Perfect for growing your rental business",
+    features: [  
+      "Reach Customer Effortlessly",
+      "Standard support",
+      "Standard reporting",
+      "Basic integrations",
     ],
     cta: {
-      text: "Book a Demo",
-      href: "/book-demo"
+      text: "Start Now",
+      href: "https://rent-camera-admin.vercel.app"
+    }
+  },
+  {
+    name: "Scale Up",
+    price: "Rp. 120000",
+    period: "/years",
+    description: "Perfect for growing your rental business",
+    features: [  
+      "Reach Customer Effortlessly",
+      "Standard support",
+      "Standard reporting",
+      "Basic integrations",
+    ],
+    cta: {
+      text: "Start Now",
+      href: "https://rent-camera-admin.vercel.app"
     }
   }
-];
-
-const enterpriseFeatures = [
-  "Unlimited employees",
-  "24/7 dedicated support",
-  "Custom development",
-  "Multi-country payroll",
-  "Custom integrations",
-  "Dedicated account manager",
-  "Custom SLA",
-  "On-premise deployment options"
 ];
 ---
 
 <Layout 
-  title="Payflo - Pricing" 
-  description="Simple, transparent pricing for platforms of all sizes. Start with a free trial and scale as you grow."
+  title="RentBQ - Pricing" 
+  description="Simple, transparent pricing for platforms of all sizes. Start with a one month and scale as you grow."
+  classNameHeader='bg-white'
 >
   <section class="pt-20 pb-16 md:pt-28 md:pb-24">
     <div class="container-custom">
@@ -75,13 +73,13 @@ const enterpriseFeatures = [
     </div>
   </section>
 
-  <section class="py-20 bg-payflo-gray">
+  <section class="py-20 bg-rentbq-gray">
     <div class="container-custom">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {tiers.map((tier, index) => (
           <div class={`bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 relative animate-on-scroll delay-${index + 2}`}>
             {tier.name === "Scale" && (
-              <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-payflo-purple to-payflo-blue text-white px-4 py-1 rounded-full text-sm font-medium">
+              <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-rentbq-light-blue to-rentbq-dark-blue text-white px-4 py-1 rounded-full text-sm font-medium">
                 Most Popular
               </div>
             )}
@@ -94,7 +92,7 @@ const enterpriseFeatures = [
             <ul class="mt-8 space-y-4">
               {tier.features.map(feature => (
                 <li class="flex items-center text-gray-700">
-                  <Icon name="ph:check-circle-duotone" class="h-5 w-5 text-payflo-purple mr-2" />
+                  <Icon name="ph:check-circle-duotone" class="h-5 w-5 text-rentbq-light-blue mr-2" />
                   {feature}
                 </li>
               ))}
@@ -106,36 +104,12 @@ const enterpriseFeatures = [
             </div>
           </div>
         ))}
-
-        <!-- Enterprise Tier -->
-        <div class="bg-gradient-to-br from-payflo-purple to-payflo-blue rounded-xl p-8 text-white animate-on-scroll delay-4">
-          <h3 class="text-2xl font-semibold">Enterprise</h3>
-          <div class="mt-4">
-            <span class="text-2xl font-medium">Custom Pricing</span>
-          </div>
-          <p class="mt-4 text-white/90">
-            For large platforms with custom requirements and enterprise-grade needs.
-          </p>
-          <ul class="mt-8 space-y-4">
-            {enterpriseFeatures.map(feature => (
-              <li class="flex items-center">
-                <Icon name="ph:check-circle-duotone" class="h-5 w-5 text-white mr-2" />
-                {feature}
-              </li>
-            ))}
-          </ul>
-          <div class="mt-8">
-            <a href="/contact" class="btn bg-white text-payflo-purple hover:bg-white/90 w-full text-center">
-              Contact Sales
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- Comparison Table -->
-  <section class="py-20">
+<!--  <section class="py-20">
     <div class="container-custom">
       <div class="text-center max-w-3xl mx-auto mb-12 animate-on-scroll">
         <h2 class="text-3xl md:text-4xl font-bold">
@@ -181,10 +155,10 @@ const enterpriseFeatures = [
                 <Icon name="ph:x-circle-duotone" class="h-5 w-5 text-gray-400 mx-auto" />
               </td>
               <td class="py-4 px-6 text-center">
-                <Icon name="ph:check-circle-duotone" class="h-5 w-5 text-payflo-purple mx-auto" />
+                <Icon name="ph:check-circle-duotone" class="h-5 w-5 text-rentbq-light-blue mx-auto" />
               </td>
               <td class="py-4 px-6 text-center">
-                <Icon name="ph:check-circle-duotone" class="h-5 w-5 text-payflo-purple mx-auto" />
+                <Icon name="ph:check-circle-duotone" class="h-5 w-5 text-rentbq-light-blue mx-auto" />
               </td>
             </tr>
             <tr class="border-b border-gray-200">
@@ -196,32 +170,14 @@ const enterpriseFeatures = [
                 <Icon name="ph:x-circle-duotone" class="h-5 w-5 text-gray-400 mx-auto" />
               </td>
               <td class="py-4 px-6 text-center">
-                <Icon name="ph:check-circle-duotone" class="h-5 w-5 text-payflo-purple mx-auto" />
+                <Icon name="ph:check-circle-duotone" class="h-5 w-5 text-rentbq-light-blue mx-auto" />
               </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-  </section>
-
-  <section class="py-20 bg-payflo-gray">
-    <div class="container-custom">
-      <div class="text-center max-w-3xl mx-auto animate-on-scroll">
-        <h2 class="text-3xl md:text-4xl font-bold">
-          Frequently Asked Questions
-        </h2>
-        <p class="mt-4 text-xl text-gray-600">
-          Have questions about our pricing? Check out our FAQ or contact us for more details.
-        </p>
-        <div class="mt-8">
-          <a href="/contact" class="btn btn-secondary">
-            Get in Touch
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  </section>--> 
 
   <CTASection />
 </Layout>

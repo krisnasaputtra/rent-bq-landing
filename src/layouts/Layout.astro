@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 import { getImage } from 'astro:assets';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -9,14 +9,15 @@ import '@fontsource-variable/plus-jakarta-sans';
 interface Props {
   title: string;
   description?: string;
+  classNameHeader?: string
 }
 
 const { 
   title, 
-  description = "Payflo makes it fast and easy for SaaS platforms to build and embed payroll using our infrastructure, APIs and UI components."
+  description = "The exclusive SaaS platform for camera & gadget rental owners. Boost your store's visibility and streamline operations with our powerful tools.",
+  classNameHeader
 } = Astro.props;
 
-// Preload critical assets
 const faviconImg = await getImage({src: '/favicon.png', width: 32, height: 32});
 ---
 
@@ -29,7 +30,7 @@ const faviconImg = await getImage({src: '/favicon.png', width: 32, height: 32});
     <link rel="icon" type="image/png" href={faviconImg.src} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <ViewTransitions />
+    <ClientRouter />
     
     <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,12 +41,12 @@ const faviconImg = await getImage({src: '/favicon.png', width: 32, height: 32});
       {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "Payflo",
-        "url": "https://payflo.dev",
-        "logo": "https://payflo.dev/logo.png",
+        "name": "RentBQ",
+        "url": "https://rent-bq.dev",
+        "logo": "https://rent-bq.dev/logo.png",
         "sameAs": [
-          "https://twitter.com/payflo_dev",
-          "https://www.linkedin.com/company/payflo-dev"
+          "https://twitter.com/rent-bq_dev",
+          "https://www.linkedin.com/company/rent-bq-dev"
         ]
       }
     </script>
@@ -55,25 +56,25 @@ const faviconImg = await getImage({src: '/favicon.png', width: 32, height: 32});
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:image" content="https://payflo.dev/og-image.jpg" />
+    <meta property="og:image" content="https://rent-bq.dev/og-image.jpg" />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@payflo_dev" />
+    <meta name="twitter:site" content="@rent-bq_dev" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://payflo.dev/twitter-image.jpg" />
+    <meta name="twitter:image" content="https://rent-bq.dev/twitter-image.jpg" />
   </head>
+
   <body class="min-h-screen flex flex-col">
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    <Header />
-    <main id="main-content" class="flex-grow">
+    <Header className={classNameHeader}/>
+    <main class="flex-grow">
       <slot />
     </main>
     <Footer />
     
     <!-- Intersection Observer for animations on scroll -->
-    <script>
+    <!-- <script>
       document.addEventListener('astro:page-load', () => {
         const animatedElements = document.querySelectorAll('.animate-on-scroll');
         
@@ -90,6 +91,7 @@ const faviconImg = await getImage({src: '/favicon.png', width: 32, height: 32});
           observer.observe(element);
         });
       });
-    </script>
+    </script> -->
+    <script src="../scripts/animations.js"/>
   </body>
 </html>

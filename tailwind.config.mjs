@@ -7,7 +7,7 @@ export default {
         "rentbq-black": "#1D1E20",
         "rentbq-gray": "#E9F3F4",
         "rentbq-light-blue": "#2A8E9E",
-        "rentbq-dark-blue": "#180D39",
+        "rentbq-dark-blue": "#033247",
       },
       fontFamily: {
         sans: ["Plus Jakarta Sans Variable", "sans-serif"],
